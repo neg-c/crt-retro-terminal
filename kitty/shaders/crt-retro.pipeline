@@ -1,0 +1,20 @@
+# Rectangular window → CRT tube: warp/scanlines, pixel grid, then thin bezel.
+# Bezel INSET_PX (~18) matches window_padding_width 22 in kitty.conf.
+
+startgroup
+    var float WARP = 0.18
+    # Lower SCAN so phosphor text stays bright through the CRT pass.
+    var float SCAN = 0.28
+    shaders crt
+endgroup
+
+startgroup
+    var float RESOLUTION = 4.0
+    # Softer pixel grille — was crushing whites/pastels.
+    var float STRENGTH = 0.22
+    shaders tft
+endgroup
+
+startgroup
+    shaders bezel
+endgroup
