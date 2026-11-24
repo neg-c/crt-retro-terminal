@@ -55,3 +55,11 @@ Foot remains for the file manager (`footclient yazi`).
 | Kitty 0.51 | Remove `~/.local/bin/kitty` / `~/.local/kitty.app` |
 | Terminal bind | Restore `programs.terminal = "footclient"` |
 | Neovim theme | `<leader>uC` or reset `~/.local/state/nvim/colorscheme` |
+
+## Perf / baking
+
+Slang modules are cached in `~/.cache/kitty/shaders`. Open latency with CRT is mostly the layered GL path (~+150ms), not recompile.
+
+- Fast profile: `kitty/kitty-perf.conf` (no `custom_shaders`)
+- Wrapper: `~/.local/bin/kitty-perf` → that conf
+- In-window toggle: `Ctrl+Alt+P` (perf) / `Ctrl+Alt+O` (CRT)
